@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ParkWise — Find parking near you</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/pages/index.css" />
+  <link rel="stylesheet" href="css/pages/index-sections.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body class="textured-bg" data-nav="public" data-page="home">
+  <main class="landing-main">
+    <div id="returning-user-banner" class="returning-banner" hidden>
+      <div class="panel"><div class="panel-body">
+        <span>Looks like you're already signed in.</span>
+        <a href="search.html" class="btn">Continue to your dashboard →</a>
+      </div></div>
+    </div>
+
+    <section class="landing-hero">
+      <span class="hero-badge"><i></i>Parking near you</span>
+      <div class="landing-hero-copy">
+        <h1 class="landing-hero-heading">Park Smarter,<span class="accent">Not Harder</span></h1>
+        <p class="landing-hero-sub">Find nearby parking or list your space. A simpler way to park.</p>
+        <div class="landing-hero-actions">
+          <a href="signup.html" class="btn-filled">Get Started</a>
+          <a href="about.html" class="btn-outline">Learn More</a>
+        </div>
+        <ul class="hero-chips"><li>Live open slots</li><li>Pay per hour</li><li>Book in seconds</li></ul>
+      </div>
+    </section>
+
+    <section class="pw-flows" id="flows">
+      <div class="pw-flows__container">
+        <div class="pw-flows__head">
+          <h2 class="pw-flows__title">Driver &amp; Parking Owner User Flows</h2>
+          <p class="pw-flows__sub">Seamless experiences tailored for everyday commuters and parking owners.</p>
+        </div>
+        <div class="pw-flows__grid">
+          <article class="pw-flow">
+            <div class="pw-flow__head">
+              <span class="pw-flow__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M5.6 5.2A2 2 0 0 1 7.5 4h9a2 2 0 0 1 1.9 1.2L19.8 9H21a1 1 0 0 1 0 2h-.6c.4.5.6 1.1.6 1.8V18a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-5.2c0-.7.2-1.3.6-1.8H3a1 1 0 0 1 0-2h1.2l1.4-3.8ZM7.6 6l-1.3 3h11.4L16.4 6H7.6ZM7 13a1.25 1.25 0 1 0 0 2.5A1.25 1.25 0 0 0 7 13Zm10 0a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"/></svg></span>
+              <div><h3 class="pw-flow__name">Normal Driver Flow</h3><span class="pw-flow__tag">For Commuters &amp; Travelers</span></div>
+            </div>
+            <ol class="pw-flow__steps">
+          <li class="pw-flow__step"><span class="pw-flow__num">1</span><div><h4>Search Nearby Parking</h4><p>Enter a city or use GPS to discover active lots near you.</p></div></li>
+          <li class="pw-flow__step"><span class="pw-flow__num">2</span><div><h4>Filter Vehicle &amp; Rates</h4><p>Pick car or bike and check the hourly rate before you drive.</p></div></li>
+          <li class="pw-flow__step"><span class="pw-flow__num">3</span><div><h4>Reserve, Park &amp; Pay</h4><p>Book a slot, check in with your QR ticket and pay securely online.</p></div></li>
+            </ol>
+          </article>
+          <article class="pw-flow pw-flow--owner">
+            <div class="pw-flow__head">
+              <span class="pw-flow__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M7 3h10a1 1 0 0 1 1 1v16h2a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2h2V4a1 1 0 0 1 1-1Zm2 4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm3 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm3 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM9 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm3 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm3 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-5.5 5a.5.5 0 0 0-.5.5V20h4v-3.5a.5.5 0 0 0-.5-.5h-3Z"/></svg></span>
+              <div><h3 class="pw-flow__name">Parking Owner Flow</h3><span class="pw-flow__tag">For Lot Owners</span></div>
+            </div>
+            <ol class="pw-flow__steps">
+          <li class="pw-flow__step"><span class="pw-flow__num">1</span><div><h4>List Your Space</h4><p>Add your address, hourly price, slots and opening hours.</p></div></li>
+          <li class="pw-flow__step"><span class="pw-flow__num">2</span><div><h4>Get Approved</h4><p>Our team reviews each listing before it goes live in search.</p></div></li>
+          <li class="pw-flow__step"><span class="pw-flow__num">3</span><div><h4>Track Slots &amp; Earnings</h4><p>Watch live slot status, bookings and daily revenue from one dashboard.</p></div></li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pw-sec" id="platform">
+      <div class="pw-sec__container">
+        <div class="pw-platform__top">
+          <div class="pw-platform__intro">
+            <span class="pw-eyebrow">Platform</span>
+            <h2 class="pw-sec__title">Everything you need to park smarter</h2>
+            <p class="pw-sec__lead">Real-time availability, easy booking, secure payments, all in one platform.</p>
+          </div>
+          <article class="pw-card pw-feature">
+            <div class="pw-feature__body">
+              <span class="pw-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></span>
+              <h3>Live parking availability</h3>
+              <p>Open spots, price and distance, updated in real time.</p>
+              <a href="find-parking.html" class="pw-btn">Find Parking <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
+            </div>
+            <div class="pw-media"><img src="assets/parking.png" alt="" onerror="this.style.display='none'"></div>
+          </article>
+        </div>
+        <div class="pw-platform__row pw-platform__row--3">
+      <article class="pw-card pw-card--v"><span class="pw-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M9 15l2 2 4-4"/></svg></span><h3>Book in seconds</h3><p>Find a spot and reserve it before you arrive.</p></article>
+      <article class="pw-card pw-card--v"><span class="pw-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><h3>Pay securely</h3><p>Clear pricing and digital receipts for every booking.</p></article>
+      <article class="pw-card pw-card--v"><span class="pw-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg></span><h3>Smart dashboard</h3><p>Bookings, active tickets and history, all in one view.</p></article>
+        </div>
+        <div class="pw-platform__row pw-platform__row--2">
+      <article class="pw-card pw-card--h"><span class="pw-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9a2 2 0 0 0 0 6v3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-3a2 2 0 0 1 0-6V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v3Z"/><path d="M14 5v14" stroke-dasharray="2 3"/></svg></span><div><h3>Active tickets</h3><p>Track your running parking session and time left.</p></div></article>
+      <article class="pw-card pw-card--h"><span class="pw-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></span><div><h3>List your space</h3><p>Earn by renting out your unused parking space.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pw-sec pw-sec--white" id="how-it-works">
+      <div class="pw-sec__container">
+        <div class="pw-how__grid">
+          <div class="pw-card pw-how__intro">
+            <span class="pw-eyebrow">How it works</span>
+            <h2 class="pw-sec__title">Simple to book. Seamless to park.</h2>
+            <div class="pw-media"><img src="assets/parking.png" alt="" onerror="this.style.display='none'"></div>
+          </div>
+          <div class="pw-steps">
+            <article class="pw-card pw-step"><span class="pw-step__num">1</span><div><h3>Search</h3><p>Find parking near your destination.</p></div></article>
+            <article class="pw-card pw-step"><span class="pw-step__num">2</span><div><h3>Book</h3><p>Pick your slot and time, confirm in a few taps.</p></div></article>
+            <article class="pw-card pw-step"><span class="pw-step__num">3</span><div><h3>Park &amp; pay</h3><p>Show your ticket at entry and pay securely online.</p></div></article>
+            <div class="pw-note">ParkWise shows you the rate before you book, so there are no surprises.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

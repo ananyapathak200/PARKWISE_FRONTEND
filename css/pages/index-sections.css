@@ -1,0 +1,132 @@
+/* index-sections.css — landing sections: user flows, platform, how it works */
+
+.pw-flows,
+.pw-sec { color: var(--ink); }
+.pw-flows__container,
+.pw-sec__container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ================= USER FLOWS ================= */
+
+.pw-flows { background: var(--surface); border-bottom: 1px solid var(--border); padding: 64px 0 72px; }
+.pw-flows__head { text-align: center; margin: 0 auto 44px; }
+.pw-flows__title { position: relative; margin: 0; padding-bottom: 18px; font-size: clamp(26px, 3vw, 36px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+.pw-flows__title::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 44px; height: 4px; margin-left: -22px; background: var(--amber); border-radius: 2px; }
+.pw-flows__sub { margin: 18px auto 0; max-width: 640px; font-size: 17px; line-height: 1.6; color: var(--muted); }
+.pw-flows__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.pw-flow {
+  --accent: var(--amber);
+  --accent-soft: var(--amber-tint);
+  --accent-text: var(--amber-dark);
+  --num-bg: var(--amber);
+  --num-fg: var(--asphalt);
+  position: relative; overflow: hidden;
+  padding: 34px 32px 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(27, 29, 31, 0.05);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.pw-flow::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--accent); }
+.pw-flow:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(27, 29, 31, 0.1); }
+.pw-flow--owner { --accent: var(--asphalt); --accent-soft: #ecedf1; --accent-text: var(--asphalt); --num-bg: var(--asphalt); --num-fg: var(--amber); }
+
+.pw-flow__head { display: flex; align-items: center; gap: 16px; margin-bottom: 30px; }
+.pw-flow__icon { width: 54px; height: 54px; flex-shrink: 0; display: grid; place-items: center; background: var(--amber); color: var(--asphalt); border-radius: 14px; }
+.pw-flow--owner .pw-flow__icon { background: var(--asphalt); color: var(--amber); }
+.pw-flow__name { margin: 0; font-size: 22px; font-weight: 800; line-height: 1.25; }
+.pw-flow__tag { display: inline-block; margin-top: 8px; padding: 4px 12px; background: var(--accent-soft); color: var(--accent-text); border-radius: 999px; font-size: 12.5px; font-weight: 700; }
+
+.pw-flow__steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }
+.pw-flow__step { position: relative; display: flex; align-items: flex-start; gap: 16px; }
+.pw-flow__step:not(:last-child)::before { content: ""; position: absolute; left: 16px; top: 38px; bottom: -20px; width: 2px; margin-left: -1px; background: repeating-linear-gradient(to bottom, var(--border) 0 4px, transparent 4px 8px); }
+.pw-flow__num { position: relative; z-index: 1; width: 32px; height: 32px; flex-shrink: 0; display: grid; place-items: center; background: var(--num-bg); color: var(--num-fg); border-radius: 50%; font-size: 15px; font-weight: 800; }
+.pw-flow__step h4 { margin: 3px 0 6px; font-size: 17px; font-weight: 800; line-height: 1.3; }
+.pw-flow__step p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--muted); }
+
+/* ================= PLATFORM + HOW IT WORKS ================= */
+
+.pw-sec { padding: 64px 0; background: var(--concrete); }
+.pw-sec--white { background: var(--surface); }
+
+.pw-eyebrow { display: block; margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.pw-sec__title { margin: 0; font-size: clamp(26px, 3.2vw, 38px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
+.pw-sec__lead { margin: 18px 0 0; max-width: 340px; font-size: 15.5px; line-height: 1.65; color: var(--muted); }
+
+.pw-icon { width: 40px; height: 40px; flex-shrink: 0; display: grid; place-items: center; background: var(--amber); color: var(--asphalt); border-radius: 10px; }
+.pw-card { background: var(--surface); border-radius: 18px; box-shadow: 0 6px 24px rgba(27, 29, 31, 0.07); }
+.pw-card h3 { margin: 0 0 8px; font-size: 20px; line-height: 1.25; }
+.pw-card p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+
+.pw-media { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--amber-tint) 0%, var(--concrete) 100%); }
+.pw-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.pw-platform__top { display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; align-items: stretch; margin-bottom: 16px; }
+.pw-platform__intro { padding-top: 8px; }
+
+.pw-feature { position: relative; overflow: hidden; min-height: 270px; padding: 30px; background: linear-gradient(100deg, var(--amber-tint) 0%, #fffdf7 55%, var(--surface) 100%); }
+.pw-feature__body { position: relative; z-index: 2; max-width: 230px; }
+.pw-feature__body h3 { margin-top: 16px; font-size: 22px; }
+.pw-feature__body p { margin-bottom: 20px; }
+.pw-feature .pw-media { position: absolute; top: 0; right: 0; bottom: 0; width: 62%; z-index: 1; background: transparent; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%); mask-image: linear-gradient(90deg, transparent 0%, #000 35%); }
+
+.pw-btn { display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px; border: 1px solid var(--amber); border-radius: 9px; background: var(--surface); color: var(--ink); font-size: 14px; font-weight: 600; }
+.pw-btn svg { color: var(--amber-dark); }
+.pw-btn:hover { background: var(--amber-tint); text-decoration: none; }
+
+.pw-platform__row { display: grid; gap: 16px; margin-top: 16px; }
+.pw-platform__row--3 { grid-template-columns: repeat(3, 1fr); }
+.pw-platform__row--2 { grid-template-columns: repeat(2, 1fr); }
+.pw-card--v { padding: 28px; }
+.pw-card--v .pw-icon { margin-bottom: 20px; }
+.pw-card--h { display: flex; align-items: center; gap: 24px; padding: 26px 28px; }
+
+.pw-how__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 32px; align-items: start; }
+.pw-how__intro { padding: 28px; background: var(--concrete); box-shadow: none; }
+.pw-how__intro .pw-sec__title { font-size: clamp(24px, 2.8vw, 34px); }
+.pw-how__intro .pw-media { margin-top: 24px; height: 210px; border-radius: 14px; }
+
+.pw-steps { display: grid; gap: 14px; }
+.pw-step { display: flex; align-items: center; gap: 18px; padding: 18px 22px; background: var(--concrete); box-shadow: none; }
+.pw-step__num { width: 38px; height: 38px; flex-shrink: 0; display: grid; place-items: center; background: var(--amber); border-radius: 50%; font-size: 16px; font-weight: 800; color: var(--asphalt); }
+.pw-step h3 { margin: 0 0 3px; font-size: 18px; }
+.pw-step p { font-size: 14px; }
+.pw-note { padding: 16px 20px; background: var(--amber-tint); border: 1px solid #f3dd8c; border-radius: 14px; font-size: 14px; line-height: 1.6; }
+
+@media (max-width: 992px) {
+  .pw-sec { padding: 44px 0; }
+  .pw-platform__top { grid-template-columns: 1fr; gap: 28px; }
+  .pw-platform__row--3 { grid-template-columns: 1fr 1fr; }
+  .pw-how__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) { .pw-flows__grid { grid-template-columns: 1fr; } }
+@media (max-width: 680px) {
+  .pw-sec { padding: 32px 0; }
+  .pw-sec__container,
+  .pw-flows__container { padding: 0 16px; }
+  .pw-sec__lead { max-width: none; font-size: 15px; margin-top: 14px; }
+  .pw-feature { min-height: 0; padding: 24px 20px 0; }
+  .pw-feature__body { max-width: none; }
+  .pw-feature .pw-media { position: relative; width: calc(100% + 40px); height: 170px; margin: 0 -20px; -webkit-mask-image: none; mask-image: none; }
+  .pw-platform__row--3,
+  .pw-platform__row--2 { grid-template-columns: 1fr; }
+  .pw-card--v,
+  .pw-card--h { padding: 20px; }
+  .pw-card--v .pw-icon { margin-bottom: 16px; }
+  .pw-card--h { gap: 16px; align-items: flex-start; }
+  .pw-card h3 { font-size: 19px; }
+  .pw-how__intro { padding: 20px; }
+  .pw-how__intro .pw-media { height: 170px; margin-top: 20px; }
+  .pw-step { padding: 16px; gap: 14px; }
+}
+@media (max-width: 600px) {
+  .pw-flows { padding: 44px 0 52px; }
+  .pw-flows__head { margin-bottom: 30px; }
+  .pw-flows__sub { font-size: 15px; }
+  .pw-flow { padding: 28px 20px 24px; border-radius: 16px; }
+  .pw-flow__icon { width: 48px; height: 48px; }
+  .pw-flow__name { font-size: 20px; }
+  .pw-flow__step h4 { font-size: 16px; }
+  .pw-flow__step p { font-size: 14.5px; }
+}

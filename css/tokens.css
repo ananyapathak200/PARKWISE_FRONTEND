@@ -1,0 +1,38 @@
+/*
+  tokens.css
+  The design system. Every color, font and radius used anywhere in the
+  app is defined here as a CSS variable. Reference the variable instead
+  of hardcoding a hex value, so a rebrand only touches this one file.
+*/
+
+:root {
+  /* Core palette — asphalt / amber / LED parking theme */
+  --asphalt: #1B1D1F;
+  --asphalt-2: #2A2D30;
+  --concrete: #F0EDE6;
+  --surface: #FFFFFF;
+  --ink: #17181A;
+  --muted: #74726B;
+  --border: #E4E1D6;
+
+  /* Accent */
+  --amber: #FFB020;
+  --amber-dark: #C67F00;
+  --amber-tint: #FFF3DD;
+
+  /* Status colors (LED-style indicators) */
+  --go: #2FAE60;
+  --go-light: #E4F5EB;
+  --go-text: #1E7A45;
+  --stop: #E5484D;
+  --stop-light: #FCEBEC;
+
+  /* Shape */
+  --radius: 14px;
+  --radius-sm: 8px;
+
+  /* Fonts */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}

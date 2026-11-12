@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ParkWise — Owner dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body class="textured-bg" data-nav="owner" data-page="dashboard">
+  <main>
+    <h1>Owner dashboard</h1>
+    <p class="subtitle">List your unused parking space and track how it's performing.</p>
+
+    <div class="stats-grid" id="owner-stats">
+      <div class="stat-tile"><div class="num">—</div><div class="label">Total listings</div></div>
+      <div class="stat-tile"><div class="num">—</div><div class="label">Total slots</div></div>
+      <div class="stat-tile"><div class="num">—</div><div class="label">Occupied right now</div></div>
+      <div class="stat-tile"><div class="num">—</div><div class="label">Today's revenue</div></div>
+    </div>
+
+    <h3>Recent activity</h3>
+    <div class="panel"><div class="panel-body" id="recent-activity"><div class="empty">Loading…</div></div></div>
+
+    <h3>Add a new listing</h3>
+    <div class="panel">
+      <div class="panel-head">List a new space</div>
+      <div class="panel-body">
+        <form id="new-listing-form">
+          <label for="listing-name">Space name</label>
+          <input type="text" id="listing-name" placeholder="e.g. Home driveway, Shop backyard" required minlength="2" maxlength="100" />
+
+          <label for="listing-address">Address</label>
+          <input type="text" id="listing-address" placeholder="e.g. Sigra, Varanasi" required minlength="3" maxlength="300" />
+          <p class="fine-print">We use the address to place your space on the map, so include the area and city.</p>
+
+          <div class="form-row">
+            <div><label for="listing-price">Price per hour (₹)</label><input type="number" id="listing-price" placeholder="20" min="1" max="10000" step="1" required /></div>
+            <div><label for="listing-slots">Number of slots</label><input type="number" id="listing-slots" placeholder="6" min="1" max="200" step="1" required /></div>
+          </div>
+          <div class="form-row">
+            <div><label for="listing-open">Opens at</label><input type="time" id="listing-open" value="08:00" /></div>
+            <div><label for="listing-close">Closes at</label><input type="time" id="listing-close" value="22:00" /></div>
+          </div>
+
+          <label for="listing-vehicle-type">Vehicle type</label>
+          <select id="listing-vehicle-type">
+            <option value="car">Car only</option>
+            <option value="bike">Bike only</option>
+            <option value="both">Both car and bike</option>
+          </select>
+
+          <label for="listing-photo">Photo (optional)</label>
+          <input type="file" id="listing-photo" accept="image/jpeg,image/png,image/webp" />
+          <p class="fine-print" id="photo-hint">JPEG, PNG, or WEBP — under 5 MB.</p>
+
+          <div class="form-error" id="listing-error"></div>
+          <div class="callout callout-go" id="listing-success" hidden></div>
+          <button type="submit" id="listing-submit">Submit for approval</button>
+        </form>
+      </div>
+    </div>
+
+    <h3>My listings</h3>
+    <div id="owner-listings"><div class="empty">Loading…</div></div>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/geolocation.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+/*
+  mobile.css
+  Phone-first refinements shared by every page. Loaded LAST on every page,
+  so these rules win over the page styles at small widths.
+  - 16px form fields (stops iPhone zooming in on tap)
+  - 44px touch targets
+  - bottom tab bar for drivers (rendered by layout.js)
+  - bookings table becomes stacked cards
+  - listing cards: no clipped text, compact price + buttons row
+*/
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { -webkit-tap-highlight-color: transparent; overflow-wrap: break-word; }
+
+/* text inside flex rows may shrink instead of pushing the card wider */
+.ticket-body > div,
+.ticket-body > div > div { min-width: 0; }
+.slot-dots { flex-wrap: wrap; }
+
+/* bottom tab bar: only rendered for drivers, only shown on phones */
+.tab-bar { display: none; }
+
+@media (max-width: 640px) {
+  /* ---------- touch & typing ---------- */
+  input, select, textarea { font-size: 16px; min-height: 44px; }
+  textarea { min-height: 96px; }
+  input[type="checkbox"], input[type="radio"] { min-height: 0; }
+
+  button, .btn { min-height: 44px; padding-top: 12px; padding-bottom: 12px; }
+  .btn-outline, .btn-filled { min-height: 40px; display: inline-flex; align-items: center; }
+
+  .nav-link, .account-trigger { min-height: 40px; display: inline-flex; align-items: center; }
+  .landing-nav-links a { padding: 10px 4px; }
+  .fine-print a, a.fine-print { display: inline-block; padding: 8px 0; }
+
+  h1 { font-size: 24px; line-height: 1.2; }
+  h2 { font-size: 20px; }
+
+  /* ---------- header ---------- */
+  header { position: sticky; top: 0; z-index: 40; }
+  .role-bar .quote-text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* logo and the few nav links share one row */
+  header { flex-wrap: nowrap; }
+  nav.main-nav { width: auto; margin-left: auto; flex-wrap: nowrap; justify-content: flex-end; }
+
+  /* drivers: page links move to the bottom tab bar, header keeps logo + Account */
+  body.has-tabbar header { flex-wrap: nowrap; }
+  body.has-tabbar nav.main-nav { width: auto; margin-left: auto; }
+  body.has-tabbar nav.main-nav > .nav-link { display: none; }
+
+  body.has-tabbar { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  .tab-bar {
+    display: flex;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    background: var(--asphalt);
+    border-top: 3px solid var(--amber);
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
+    box-shadow: 0 -8px 24px -12px rgba(0, 0, 0, 0.5);
+  }
+  .tab-bar a {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+    min-height: 50px; border-radius: 12px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 11px; font-weight: 600; text-decoration: none;
+  }
+  .tab-bar a svg { width: 22px; height: 22px; }
+  .tab-bar a:hover { text-decoration: none; color: #fff; }
+  .tab-bar a.active { color: var(--amber); background: rgba(255, 255, 255, 0.06); }
+
+  /* ---------- listing / ticket cards ---------- */
+  .listing-name { font-size: 16px; line-height: 1.3; }
+  .ticket-thumb { width: 64px; height: 64px; }
+  .slot-dots i { width: 9px; height: 9px; }
+
+  .ticket-price {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center;
+    border-top: 1px dashed var(--border); padding-top: 12px;
+  }
+  .ticket-price .amt,
+  .ticket-price .unit { grid-column: 1 / -1; }
+  .ticket-price .unit { margin-top: -6px; }
+  .ticket-price br { display: none; }
+  .ticket-price .btn,
+  .ticket-price button { margin: 0; width: 100%; }
+  .ticket-price > :only-child, .ticket-price .btn:last-child:nth-child(3) { grid-column: 1 / -1; }
+
+  /* ---------- bookings table -> stacked cards ---------- */
+  .table-scroll { overflow: visible; }
+  table.simple.stack-mobile { min-width: 0; background: transparent; border-radius: 0; overflow: visible; }
+  table.simple.stack-mobile thead { display: none; }
+  table.simple.stack-mobile tbody,
+  table.simple.stack-mobile tr,
+  table.simple.stack-mobile td { display: block; width: 100%; }
+  table.simple.stack-mobile tr {
+    background: var(--surface); border-radius: var(--radius); margin-bottom: 12px; padding: 6px 16px 14px;
+    box-shadow: 0 10px 26px -18px rgba(0, 0, 0, 0.3);
+  }
+  table.simple.stack-mobile td { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 0; text-align: right; }
+  table.simple.stack-mobile td::before {
+    content: attr(data-label); text-align: left;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);
+  }
+  table.simple.stack-mobile td:not([data-label])::before,
+  table.simple.stack-mobile td[data-label=""]::before { content: none; }
+  table.simple.stack-mobile td .status-pill { margin: 0; }
+  table.simple.stack-mobile td.td-action { border-bottom: none; padding-bottom: 0; }
+  table.simple.stack-mobile td.td-action:empty { display: none; }
+  table.simple.stack-mobile td.td-action .btn { width: 100%; text-align: center; }
+  table.simple.stack-mobile td.empty { display: block; text-align: center; }
+
+  /* ---------- misc ---------- */
+  .stars { font-size: 34px; letter-spacing: 8px; }
+  .stars.readonly { font-size: 15px; letter-spacing: 4px; }
+  .status-banner { font-size: 13px; }
+  .status-banner button { min-height: 32px; padding: 6px 12px; margin: 0 0 0 6px; }
+
+  /* find-parking: each filter group on its own swipeable row */
+  .ps-chips { flex-direction: column; align-items: stretch; gap: 10px; }
+  .ps-chips__sep { display: none; }
+  .ps-chipgroup { display: flex; flex-wrap: nowrap; align-items: center; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: 0 -14px; padding: 0 14px; }
+  .ps-chipgroup::-webkit-scrollbar { display: none; }
+  .ps-chipgroup .ps-chips__label { width: 58px; flex: none; }
+  .ps-chip, .ps-chip:hover, .ps-chip:focus, .ps-chip:active { min-height: 38px; padding: 8px 16px; flex: none; }
+  .ps-suggest { max-height: 55vh; }
+  .ps-opt { padding: 11px 10px; }
+  .ps-clear, .ps-clear:hover, .ps-clear:focus, .ps-clear:active { width: 36px; height: 36px; min-height: 0; padding: 0; }
+}
+
+/* no keyboard hint on touch screens */
+@media (hover: none) and (pointer: coarse) { .ps-hint { display: none; } }
+
+/* very small phones (iPhone SE / 320px) */
+@media (max-width: 360px) {
+  main, main.narrow { padding-left: 12px; padding-right: 12px; }
+  .stats-grid, .pd-stats { gap: 8px; }
+  .btn-outline, .btn-filled { padding-left: 12px; padding-right: 12px; font-size: 13px; }
+  .logo-text { font-size: 16px; }
+  header:not(.landing-header) { flex-wrap: wrap; }
+  body:not(.has-tabbar) nav.main-nav { width: 100%; justify-content: flex-start; }
+}

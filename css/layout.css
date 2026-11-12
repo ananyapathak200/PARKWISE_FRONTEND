@@ -1,0 +1,76 @@
+/*
+  layout.css
+  The page shell shared by every page: header, nav, the amber/asphalt
+  stripe divider and the main content container.
+*/
+
+header {
+  background: var(--asphalt);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.logo-mark {
+  width: 30px;
+  height: 30px;
+  background: var(--amber);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--asphalt);
+  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 18px;
+}
+
+.logo-text {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.logo-text span { color: var(--amber); }
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo-link:hover { text-decoration: none; }
+
+nav.main-nav { display: flex; align-items: center; gap: 6px; }
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.nav-link:hover { color: #fff; text-decoration: none; background: rgba(255, 255, 255, 0.08); }
+.nav-link.active { background: var(--amber); color: var(--asphalt); }
+.nav-link.active:hover { background: var(--amber-dark); }
+
+.stripe-bar {
+  height: 6px;
+  background-image: repeating-linear-gradient(135deg, var(--amber) 0 10px, var(--asphalt) 10px 20px);
+}
+
+main { max-width: 780px; margin: 0 auto; padding: 30px 20px 70px; }
+main.narrow { max-width: 480px; }
+
+@media (max-width: 640px) {
+  header { padding: 12px 16px; gap: 10px; }
+  .logo-text { font-size: 17px; }
+  nav.main-nav { flex-wrap: wrap; gap: 4px; width: 100%; justify-content: flex-start; }
+  .nav-link { font-size: 12px; padding: 6px 10px; }
+  main, main.narrow { padding: 20px 14px 50px; }
+}

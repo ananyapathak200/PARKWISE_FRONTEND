@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ParkWise — About</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/pages/static.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body class="textured-bg" data-nav="public" data-page="about">
+  <main class="static-page">
+    <span class="static-eyebrow">About</span>
+    <h1>Parking, without the circling.</h1>
+    <p class="static-lead">ParkWise connects drivers who need a spot with owners who have one to spare. Search what's open nearby, reserve a slot, and pay online — or turn an empty driveway or shop lot into income.</p>
+    <div class="static-grid">
+      <article class="panel">
+        <div class="panel-head">For drivers</div>
+        <div class="panel-body">
+          <ul class="static-list">
+            <li>Search nearby parking, ranked by distance, price and open slots</li>
+            <li>Filter by vehicle type and price per hour</li>
+            <li>Reserve a slot, check in with your QR ticket and pay securely</li>
+          </ul>
+          <a href="signup.html" class="btn">Find parking</a>
+        </div>
+      </article>
+      <article class="panel">
+        <div class="panel-head">For owners</div>
+        <div class="panel-body">
+          <ul class="static-list">
+            <li>List a space with your own price and opening hours</li>
+            <li>Every listing is reviewed before it goes live</li>
+            <li>Track live slot status, bookings and daily revenue</li>
+          </ul>
+          <a href="signup.html" class="btn">List your space</a>
+        </div>
+      </article>
+    </div>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

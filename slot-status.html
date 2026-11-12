@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ParkWise — Slot status</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body class="textured-bg" data-nav="owner" data-page="dashboard">
+  <main>
+    <a href="dashboard.html" class="fine-print">&larr; Back to dashboard</a>
+    <h1 style="margin-top:14px;" id="listing-name">Slot status</h1>
+    <p class="subtitle" id="listing-summary">Loading…</p>
+    <div class="panel"><div class="panel-body">
+      <div class="legend-row">
+        <span><i class="dot" style="background:var(--go);"></i>Available</span>
+        <span><i class="dot" style="background:var(--amber-dark);"></i>Reserved</span>
+        <span><i class="dot" style="background:var(--stop);"></i>Occupied</span>
+      </div>
+      <div class="slot-grid" id="slot-grid"><div class="empty">Loading slots…</div></div>
+      <button type="button" class="secondary" id="refresh-btn" style="margin-top:18px;">Refresh</button>
+    </div></div>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/slot-status.js"></script>
+</body>
+</html>

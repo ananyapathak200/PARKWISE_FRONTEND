@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ParkWise — Login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/pages/auth.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body class="textured-bg" data-nav="auth" data-page="login" data-auth-href="signup.html" data-auth-label="Need an account?">
+  <main class="narrow">
+    <h1>Welcome back</h1>
+    <p class="subtitle">Log in to book parking or manage your listings.</p>
+    <div class="panel">
+      <div class="panel-head">Login</div>
+      <div class="panel-body">
+        <form id="login-form">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required maxlength="254" />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required maxlength="128" />
+          <div class="auth-forgot"><a href="forgot-password.html">Forgot password?</a></div>
+          <div class="form-error" id="login-error"></div>
+          <button type="submit" id="login-btn" class="full-width auth-submit">Log in</button>
+        </form>
+      </div>
+    </div>
+    <p class="fine-print auth-foot">Don't have an account? <a href="signup.html">Sign up</a></p>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ParkWise — Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/pages/driver-dashboard.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body class="textured-bg" data-nav="driver" data-page="dashboard">
+  <main class="pd-main">
+    <h1>Welcome back</h1>
+    <p class="subtitle">Your parking at a glance.</p>
+
+    <!-- Active / upcoming ticket -->
+    <section class="pd-active" id="pd-active" hidden>
+      <div class="pd-active__main">
+        <span class="pd-live" id="pd-live"></span>
+        <h2 class="pd-active__place" id="pd-active-place"></h2>
+        <p class="pd-active__meta" id="pd-active-meta"></p>
+        <div class="pd-bar" aria-hidden="true"><span id="pd-bar-fill"></span></div>
+        <div class="pd-actions" id="pd-actions"></div>
+      </div>
+      <div class="pd-active__time">
+        <span class="pd-active__label" id="pd-time-label">Time left</span>
+        <strong id="pd-time">--:--:--</strong>
+      </div>
+    </section>
+
+    <!-- No active booking -->
+    <section class="pd-empty" id="pd-empty" hidden>
+      <div>
+        <h2>No active parking</h2>
+        <p>Find a spot near you and book it in a few taps.</p>
+      </div>
+      <a href="find-parking.html" class="pd-btn pd-btn--primary">Find parking</a>
+    </section>
+
+    <section class="pd-stats">
+      <div class="pd-card pd-stat"><span class="pd-stat__label">Bookings</span><strong id="pd-stat-bookings">–</strong></div>
+      <div class="pd-card pd-stat"><span class="pd-stat__label">Hours parked</span><strong id="pd-stat-hours">–</strong></div>
+      <div class="pd-card pd-stat"><span class="pd-stat__label">Total spent</span><strong id="pd-stat-spent">–</strong></div>
+    </section>
+
+    <h3 class="pd-section">Quick actions</h3>
+    <section class="pd-quick">
+      <a href="find-parking.html" class="pd-card pd-qa">
+        <span class="pd-qa__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>Find parking
+      </a>
+      <a href="booking-history.html" class="pd-card pd-qa">
+        <span class="pd-qa__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>My bookings
+      </a>
+      <a href="booking-history.html" class="pd-card pd-qa" id="pd-receipts-link">
+        <span class="pd-qa__icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6M9 12h6"/></svg></span>Receipts
+      </a>
+    </section>
+
+    <h3 class="pd-section">Recent bookings</h3>
+    <section class="pd-card pd-list" id="pd-recent" aria-live="polite"><p class="pd-none">Loading…</p></section>
+  </main>
+  <script src="js/layout.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/geolocation.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/driver-dashboard.js"></script>
+</body>
+</html>
