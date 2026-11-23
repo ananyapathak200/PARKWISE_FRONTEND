@@ -6,19 +6,19 @@
 */
 
 :root {
-  /* Core palette — asphalt / amber / LED parking theme */
-  --asphalt: #1B1D1F;
-  --asphalt-2: #2A2D30;
-  --concrete: #F0EDE6;
+  /* Core palette — navy / yellow (the names "asphalt" etc. are kept so old rules still work) */
+  --asphalt: #15223F;
+  --asphalt-2: #22345C;
+  --concrete: #F4F6F9;
   --surface: #FFFFFF;
-  --ink: #17181A;
-  --muted: #74726B;
-  --border: #E4E1D6;
+  --ink: #15223F;
+  --muted: #5E6A7D;
+  --border: #E3E7EE;
 
   /* Accent */
-  --amber: #FFB020;
-  --amber-dark: #C67F00;
-  --amber-tint: #FFF3DD;
+  --amber: #FDB515;
+  --amber-dark: #C98A00;
+  --amber-tint: #FFF6DC;
 
   /* Status colors (LED-style indicators) */
   --go: #2FAE60;
@@ -32,7 +32,8 @@
   --radius-sm: 8px;
 
   /* Fonts */
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'Space Mono', monospace;
+  /* Plus Jakarta Sans for everything: bold for headings, regular for reading. */
+  --font-display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Consolas, monospace;
 }

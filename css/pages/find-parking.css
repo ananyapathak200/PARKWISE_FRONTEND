@@ -12,7 +12,7 @@ main.ps-main { max-width: 760px; }
 
 .ps-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
 .ps-chipgroup { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.ps-chips__label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+.ps-chips__label { font-size: 13.5px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--muted); margin-right: 2px; }
 .ps-chips__sep { width: 1px; height: 22px; background: var(--border); margin: 0 6px; }
 
 .ps-chip,
@@ -39,7 +39,7 @@ main.ps-main { max-width: 760px; }
 .ps-chip.is-active:hover { background: var(--asphalt); color: #fff; border-color: var(--asphalt); }
 
 .ps-more { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 12px; }
-.ps-more summary { cursor: pointer; list-style: none; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.ps-more summary { cursor: pointer; list-style: none; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--muted); }
 .ps-more summary::-webkit-details-marker { display: none; }
 .ps-more summary::after { content: " ▾"; }
 .ps-more[open] summary::after { content: " ▴"; }
@@ -82,8 +82,8 @@ main.ps-main { max-width: 760px; }
 }
 .ps-suggest[hidden] { display: none; }
 .ps-suggest__head {
-  padding: 6px 10px 4px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--muted);
+  padding: 6px 10px 4px; font-size: 12.5px; font-weight: 700; letter-spacing: 0;
+  text-transform: none; color: var(--muted);
 }
 
 .ps-opt {
@@ -97,7 +97,7 @@ main.ps-main { max-width: 760px; }
 
 .ps-opt__icon {
   flex-shrink: 0; width: 28px; height: 28px; border-radius: 6px;
-  display: grid; place-items: center; font-weight: 800; font-size: 13px;
+  display: grid; place-items: center; font-weight: 700; font-size: 13px;
   background: var(--asphalt); color: var(--amber);
 }
 .ps-opt--area .ps-opt__icon { background: var(--amber-tint); color: var(--amber-dark); font-size: 16px; }

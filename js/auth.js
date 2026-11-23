@@ -5,12 +5,20 @@
 */
 
 function redirectForRole(role) {
+  // after login, return to the page that asked for it — only plain pages on this site, never another domain
+  const next = new URLSearchParams(window.location.search).get("next");
+  if (next && /^[a-z-]+\.html(\?[^#]*)?$/i.test(next) && !/^(login|signup)\.html/i.test(next)) {
+    window.location.href = next;
+    return;
+  }
   window.location.href = homeForRole(role);
 }
 
 function requireLogin() {
   if (!localStorage.getItem("parkwise_token")) {
-    window.location.href = "login.html";
+    // remember where they were going, so login can bring them back (e.g. a place picked on the home page)
+    const here = window.location.pathname.split("/").pop() + window.location.search;
+    window.location.href = "login.html?next=" + encodeURIComponent(here);
     return false;
   }
   return true;
@@ -76,6 +84,16 @@ function setBusy(button, busy, busyText) {
   if (!form) return;
   const button = document.getElementById("signup-btn");
   const errorEl = document.getElementById("signup-error");
+
+  // signup.html?role=owner (from "List your space") starts with Owner selected
+  const wantedRole = new URLSearchParams(window.location.search).get("role");
+  if (wantedRole === "owner" || wantedRole === "driver") {
+    const input = form.querySelector(`input[name="role"][value="${wantedRole}"]`);
+    if (input) {
+      input.checked = true;
+      document.querySelectorAll(".role-option").forEach((o) => o.classList.toggle("selected", o.contains(input)));
+    }
+  }
 
   // highlight the chosen role card
   document.querySelectorAll(".role-option").forEach((option) => {

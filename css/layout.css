@@ -5,8 +5,10 @@
 */
 
 header {
-  background: var(--asphalt);
-  padding: 16px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  /* line the header up with the page content (1160px) on wide screens */
+  padding: 14px max(24px, calc((100% - 1160px) / 2 + 24px));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -29,13 +31,15 @@ header {
 }
 
 .logo-text {
-  color: #fff;
-  font-size: 20px;
-  letter-spacing: 0.04em;
-  font-weight: 700;
-  text-transform: uppercase;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 21px;
+  letter-spacing: -0.03em;
+  font-weight: 800;
 }
-.logo-text span { color: var(--amber); }
+.logo-text span { color: var(--amber-dark); }
+.logo-mark-svg { display: block; flex: none; }
+.logo-mark { display: none; }
 
 .logo-link {
   display: flex;
@@ -48,29 +52,26 @@ header {
 nav.main-nav { display: flex; align-items: center; gap: 6px; }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
+  color: var(--muted);
+  font-size: 14.5px;
   font-weight: 600;
   padding: 8px 14px;
   border-radius: 999px;
   text-decoration: none;
 }
-.nav-link:hover { color: #fff; text-decoration: none; background: rgba(255, 255, 255, 0.08); }
-.nav-link.active { background: var(--amber); color: var(--asphalt); }
-.nav-link.active:hover { background: var(--amber-dark); }
+.nav-link:hover { color: var(--ink); text-decoration: none; background: var(--concrete); }
+.nav-link.active { background: var(--concrete); color: var(--ink); }
+.nav-link.active:hover { background: #ECECE8; }
 
-.stripe-bar {
-  height: 6px;
-  background-image: repeating-linear-gradient(135deg, var(--amber) 0 10px, var(--asphalt) 10px 20px);
-}
+.stripe-bar { display: none; }   /* retired: the plain header border is enough */
 
-main { max-width: 780px; margin: 0 auto; padding: 30px 20px 70px; }
+main { max-width: 820px; margin: 0 auto; padding: 36px 20px 72px; }
 main.narrow { max-width: 480px; }
 
 @media (max-width: 640px) {
   header { padding: 12px 16px; gap: 10px; }
-  .logo-text { font-size: 17px; }
+  .logo-text { font-size: 19px; }
   nav.main-nav { flex-wrap: wrap; gap: 4px; width: 100%; justify-content: flex-start; }
-  .nav-link { font-size: 12px; padding: 6px 10px; }
+  .nav-link { font-size: 14px; padding: 6px 10px; }
   main, main.narrow { padding: 20px 14px 50px; }
 }

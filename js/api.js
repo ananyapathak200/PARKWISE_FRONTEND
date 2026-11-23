@@ -6,12 +6,8 @@
   logins and payments are never sent unencrypted).
 */
 
-const API_BASE_URL = (() => {
-  const host = window.location.hostname;
-  const local = !host || host === "localhost" || host === "127.0.0.1" || window.location.protocol === "file:";
-  if (local) return "http://127.0.0.1:9000";
-  return "https://api." + host.replace(/^www\./, "");
-})();
+// const API_BASE_URL = "https://parkwise-backend-4.onrender.com";
+const API_BASE_URL = "http://localhost:9000";
 
 function authHeaders() {
   const token = localStorage.getItem("parkwise_token");
@@ -100,7 +96,8 @@ const api = {
   getListing(id, lat, lng) {
     const params = new URLSearchParams();
     if (lat != null && lng != null) { params.set("lat", lat); params.set("lng", lng); }
-    return request(`/parking-areas/${id}?${params.toString()}`);
+    // auth: owners and admins can also open listings that are still waiting for approval
+    return request(`/parking-areas/${id}?${params.toString()}`, { auth: true });
   },
   getMyListings: () => request("/parking-areas/mine", { auth: true }),
   getOwnerSummary: () => request("/parking-areas/mine/summary", { auth: true }),

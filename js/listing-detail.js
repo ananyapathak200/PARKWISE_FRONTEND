@@ -32,7 +32,7 @@
           <div class="form-row" style="margin-top:6px;">
             <div>
               <label>Price</label>
-              <div style="font-family:var(--font-display); font-size:24px; font-weight:800;">₹${escapeHtml(l.price_per_hour)}<span style="font-size:12px; font-weight:400; color:var(--muted);">/hr</span></div>
+              <div style="font-family:var(--font-display); font-size:24px; font-weight:700;">₹${escapeHtml(l.price_per_hour)}<span style="font-size:12px; font-weight:400; color:var(--muted);">/hr</span></div>
             </div>
             <div>
               <label>Open hours</label>

@@ -1,7 +1,7 @@
 /* auth.css — login, signup, forgot / reset password */
 
 .auth-forgot { text-align: right; margin-top: 8px; }
-.auth-forgot a { font-size: 12.5px; }
+.auth-forgot a { font-size: 14px; }
 .auth-submit { margin-top: 18px; }
 .auth-foot { text-align: center; margin-top: 4px; }
 
@@ -19,6 +19,49 @@
   letter-spacing: normal;
 }
 .role-option input { display: none; }
-.role-option .role-label { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink); }
+.role-option .role-label { font-size: 13px; font-weight: 700; text-transform: none; letter-spacing: 0.03em; color: var(--ink); }
 .role-option .role-desc { font-size: 11.5px; color: var(--muted); margin-top: 3px; font-weight: 400; }
 .role-option.selected { border-color: var(--amber); background: var(--amber-tint); }
+
+/* ---------- split layout: form on the left, photo panel on the right ---------- */
+main.auth-split {
+  max-width: 1100px;
+  margin: 28px auto 0;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: stretch;
+}
+.auth-form { max-width: 440px; width: 100%; justify-self: center; align-self: center; padding: 24px 0; }
+.auth-form h1 { font-size: clamp(28px, 3vw, 36px); font-weight: 800; letter-spacing: -0.03em; }
+.auth-form .panel { border: 0; box-shadow: none; background: transparent; }
+.auth-form .panel-head { display: none; }        /* the page heading already says it */
+.auth-form .panel-body { padding: 8px 0 0; }
+.auth-form .auth-submit { border-radius: 12px; padding: 14px; font-size: 15.5px; }
+.auth-foot { font-size: 14px; }
+
+.auth-art {
+  position: relative;
+  min-height: 560px;
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(21, 34, 63, 0.15) 0%, rgba(21, 34, 63, 0.92) 78%),
+    url("../../assets/hero.jpg") center / cover no-repeat,
+    var(--asphalt);
+}
+.auth-art__inner { position: absolute; left: 36px; right: 36px; bottom: 36px; color: #fff; }
+.auth-art h2 { margin: 0; font-size: clamp(26px, 2.6vw, 34px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: #fff; }
+.auth-art h2 span { color: var(--amber); }
+.auth-art p { margin: 10px 0 0; font-size: 16px; color: #D3D9E4; }
+
+.role-option { border-radius: 12px; padding: 16px 12px; }
+.role-option .role-label { font-size: 15px; }
+.role-option .role-desc { font-size: 13px; }
+
+@media (max-width: 860px) {
+  main.auth-split { grid-template-columns: 1fr; margin-top: 12px; padding: 0 16px; gap: 0; }
+  .auth-art { display: none; }
+  .auth-form { padding: 12px 0; }
+}

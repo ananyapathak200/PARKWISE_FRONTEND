@@ -98,12 +98,23 @@
   const successEl = $("listing-success");
   const MAX_PHOTO = 5 * 1024 * 1024;
 
-  $("listing-photo").addEventListener("change", (e) => {
-    const file = e.target.files[0];
-    const hint = $("photo-hint");
-    if (!file) { hint.textContent = "JPEG, PNG, or WEBP — under 5 MB."; return; }
-    hint.textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(1)} MB`;
-  });
+  const photoDrop = $("listing-photo-drop");
+
+  /* Details and photo added on the home page ("Show drivers your space") */
+  (function useHomeDraft() {
+    let draft = null;
+    try { draft = JSON.parse(sessionStorage.getItem("parkwise_listing_draft") || "null"); } catch (e) { /* ignore */ }
+    if (!draft) return;
+    try { sessionStorage.removeItem("parkwise_listing_draft"); } catch (e) { /* ignore */ }
+    if (draft.name) $("listing-name").value = draft.name;
+    if (draft.price) $("listing-price").value = draft.price;
+    if (draft.photo) {
+      try { PhotoDrop.setFile(photoDrop, PhotoDrop.dataUrlToFile(draft.photo, "space-photo.jpg")); } catch (e) { /* photo couldn't be restored */ }
+    }
+    $("listing-draft-note").hidden = false;
+    const target = $("new-listing");
+    if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth", block: "start" }), 300);
+  })();
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -115,7 +126,7 @@
     const address = $("listing-address").value.trim();
     const price = parseFloat($("listing-price").value);
     const slots = parseInt($("listing-slots").value, 10);
-    const photo = $("listing-photo").files[0];
+    const photo = PhotoDrop.getFile(photoDrop);
 
     if (!(price > 0)) return fail("Enter a price per hour greater than 0.");
     if (!(slots >= 1)) return fail("You need at least 1 slot.");
@@ -150,7 +161,8 @@
         catch (err) { note += ` (The photo couldn't be uploaded: ${err.message})`; }
       }
       form.reset();
-      $("photo-hint").textContent = "JPEG, PNG, or WEBP — under 5 MB.";
+      PhotoDrop.clear(photoDrop);
+      $("listing-draft-note").hidden = true;
       successEl.textContent = note;
       successEl.hidden = false;
       setBusy(button, false);

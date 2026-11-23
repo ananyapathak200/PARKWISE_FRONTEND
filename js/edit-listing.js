@@ -8,6 +8,16 @@
   const errorEl = $("edit-error");
   const successEl = $("edit-success");
   let originalAddress = "";
+  const photoDrop = $("listing-photo-drop");
+  const removeBtn = photoDrop.querySelector(".photo-drop__remove");
+  let currentPhoto = null;
+
+  // "Remove" only cancels a newly chosen photo; the saved photo stays until it's replaced.
+  removeBtn.hidden = true;
+  photoDrop.addEventListener("photo-change", (e) => {
+    removeBtn.hidden = !e.detail.file;
+    if (!e.detail.file && currentPhoto) PhotoDrop.showExisting(photoDrop, currentPhoto);
+  });
 
   async function load() {
     if (!id) { $("edit-body").innerHTML = '<div class="empty">No listing specified.</div>'; return; }
@@ -21,6 +31,8 @@
       $("listing-price").value = l.price_per_hour ?? "";
       $("listing-slots").value = l.total_slots ?? "";
       $("slots-link").href = `slot-status.html?id=${encodeURIComponent(id)}`;
+      currentPhoto = imageUrl(l.image_url);
+      if (currentPhoto) PhotoDrop.showExisting(photoDrop, currentPhoto);
       form.hidden = false;
     } catch (err) {
       $("edit-body").innerHTML = `<div class="empty">Couldn't load this listing — ${escapeHtml(err.message)}</div>`;
@@ -57,6 +69,13 @@
       }
       await api.updateListing(id, payload);
       originalAddress = address;
+      const newPhoto = PhotoDrop.getFile(photoDrop);
+      if (newPhoto) {
+        const updated = await api.uploadListingPhoto(id, newPhoto);
+        currentPhoto = imageUrl(updated && updated.image_url) || currentPhoto;
+        PhotoDrop.clear(photoDrop);
+        if (currentPhoto) PhotoDrop.showExisting(photoDrop, currentPhoto);
+      }
       $("listing-heading").textContent = payload.name;
       successEl.textContent = "Changes saved.";
       successEl.hidden = false;

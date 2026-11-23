@@ -30,7 +30,6 @@ body { -webkit-tap-highlight-color: transparent; overflow-wrap: break-word; }
   .btn-outline, .btn-filled { min-height: 40px; display: inline-flex; align-items: center; }
 
   .nav-link, .account-trigger { min-height: 40px; display: inline-flex; align-items: center; }
-  .landing-nav-links a { padding: 10px 4px; }
   .fine-print a, a.fine-print { display: inline-block; padding: 8px 0; }
 
   h1 { font-size: 24px; line-height: 1.2; }
@@ -53,21 +52,21 @@ body { -webkit-tap-highlight-color: transparent; overflow-wrap: break-word; }
   .tab-bar {
     display: flex;
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
-    background: var(--asphalt);
-    border-top: 3px solid var(--amber);
+    background: var(--surface);
+    border-top: 1px solid var(--border);
     padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
-    box-shadow: 0 -8px 24px -12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -6px 20px -14px rgba(0, 0, 0, 0.25);
   }
   .tab-bar a {
     flex: 1;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
     min-height: 50px; border-radius: 12px;
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 11px; font-weight: 600; text-decoration: none;
+    color: var(--muted);
+    font-size: 11.5px; font-weight: 600; text-decoration: none;
   }
   .tab-bar a svg { width: 22px; height: 22px; }
-  .tab-bar a:hover { text-decoration: none; color: #fff; }
-  .tab-bar a.active { color: var(--amber); background: rgba(255, 255, 255, 0.06); }
+  .tab-bar a:hover { text-decoration: none; color: var(--ink); }
+  .tab-bar a.active { color: var(--ink); background: var(--amber-tint); }
 
   /* ---------- listing / ticket cards ---------- */
   .listing-name { font-size: 16px; line-height: 1.3; }
@@ -100,7 +99,7 @@ body { -webkit-tap-highlight-color: transparent; overflow-wrap: break-word; }
   table.simple.stack-mobile td { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 0; text-align: right; }
   table.simple.stack-mobile td::before {
     content: attr(data-label); text-align: left;
-    font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted);
+    font-size: 11px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--muted);
   }
   table.simple.stack-mobile td:not([data-label])::before,
   table.simple.stack-mobile td[data-label=""]::before { content: none; }
@@ -139,4 +138,10 @@ body { -webkit-tap-highlight-color: transparent; overflow-wrap: break-word; }
   .logo-text { font-size: 16px; }
   header:not(.landing-header) { flex-wrap: wrap; }
   body:not(.has-tabbar) nav.main-nav { width: 100%; justify-content: flex-start; }
+}
+
+@media (max-width: 400px) {
+  .landing-header .logo-text { font-size: 18px; }
+  .landing-header .logo-mark-svg { width: 30px; height: 30px; }
+  .landing-auth-buttons .btn-outline { display: none; }   /* Sign in stays reachable from the menu */
 }

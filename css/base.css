@@ -10,6 +10,8 @@
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
   background: var(--concrete);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
@@ -18,25 +20,29 @@ body {
 img { max-width: 100%; }
 
 h1 {
-  font-family: var(--font-body);
-  font-size: 28px;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0 0 4px;
   color: var(--ink);
 }
 
 h2 {
-  font-family: var(--font-body);
-  font-size: 22px;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
   margin: 0 0 6px;
   color: var(--ink);
 }
 
 h3 {
   font-family: var(--font-body);
-  font-size: 17px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 700;
   margin: 24px 0 10px;
   color: var(--ink);
 }
